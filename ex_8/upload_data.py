@@ -11,7 +11,7 @@ PATH_TO_AUTHORS = Path(f'{ROOT_DIR}/authors.json')
 PATH_TO_QUOTES = Path(f'{ROOT_DIR}/quotes.json')
 
 async def load_file(path) -> dict:
-    async with aiofiles.open(path, mode='r') as file:
+    async with aiofiles.open(path, mode='r', encoding="utf-8") as file:
         return json.loads(await file.read())
     
 def create_author(author: dict) -> Author:
